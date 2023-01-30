@@ -1,0 +1,65 @@
+{% extends "home1.html" %}
+
+
+{% block title %}
+    Add Teacher
+{% endblock title %}
+    
+{% block head %}
+    <style>
+        .teacher{
+            font-family: Verdana, sans-serif;
+            margin-top: 10px;
+            margin-left: 35%;
+            margin-bottom: 20px;
+            text-decoration: strong;
+        }.submit{
+            margin-top: 45px;
+            margin-left: 38%;
+            text-align: center;
+            background-color: #198754;
+            color: white;
+            padding-left: 120px;
+            padding-right: 120px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 25px;
+            font-family: Verdana, Arial, sans-serif;
+
+        }
+    </style>
+
+{% endblock head %}
+
+{% block body %}
+<div class= "teacher">
+    <h1><b><strong>Edit Teacher</strong></b></h1>
+</div>
+<form method="POST">
+    <div class="row">
+        <div class="col">
+        <input type="text" class="form-control" placeholder="First name" aria-label="First name" name= "first_name" value="{{teacher['f_name']}}">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name= "last_name" value="{{teacher['l_name']}}">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="date" class="form-control" placeholder="Date of Birth" aria-label="Date of Brith" name= "date_of_birth" value="{{teacher['dofbirth']}}">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Class" aria-label="Class" name= "class_" value="{{teacher['class']}}">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="number" class="form-control" placeholder="ID Number" aria-label="id number" name= "id_number" value="{{teacher['id']}}" disabled>
+        </div>
+        <div class="col">
+          <input type="number" class="form-control" placeholder="Salary" aria-label="Class" name= "salary_" value="{{teacher['salary']}}">
+        </div>
+      </div>
+      <input type="submit" class="submit">
+{% endblock body %}
+    

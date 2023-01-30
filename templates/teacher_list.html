@@ -1,0 +1,65 @@
+{% extends 'home1.html' %}
+
+{% block title %}Teachers List{% endblock title %}
+{% block head %}
+    <style>
+        .name{
+            color: white;
+            font-size: 16 px;
+            font-family: Verdana, Arial, sans-serif;
+        }
+    </style>
+{% endblock head %}
+
+{% block body %}
+
+<a class="btn btn-success mt-4 mb-4 ms-4" href= "http://127.0.0.1:5000/teacher/add">Add Teacher</a>
+
+<table class="table table-dark table-striped">
+    <thead>
+    <tr>
+    <th scope="col">ID#</th>
+    <th scope="col">First Name</th>
+    <th scope="col">Last Last</th>
+    <th scope="col">Class</th>
+    <th scope="col">Date of Birth</th>
+    <th scope="col">Salary</th>
+    <th scope="col">Actions</th>
+
+    </tr>
+</thead>
+<tbody>
+    {% for teacher in teachers %}
+        <tr>
+            <th>
+                {{teacher["id"]}}
+            </th>
+            <td>
+                <b><a class = "name" href= "http://127.0.0.1:5000/teacher/{{teacher["id"]}}">{{teacher["f_name"]}}</a></b>
+            </td>
+            <td>
+                {{teacher["l_name"]}}
+            </td>
+            <td>
+                {{teacher["class"]}}
+            </td>
+            <td>
+                {{teacher["dofbirth"]}}
+            </td>
+            <td>
+                {{teacher["salary"]}}
+            </td>
+            <td>
+                <a class="btn btn-success " href="http://127.0.0.1:5000/{{teacher["id"]}}/view_">View</a>
+                <a class="btn btn-primary ms-1" href="http://127.0.0.1:5000/{{teacher["id"]}}/edit">Edit</a>
+                <a class="btn btn-danger ms-1" href="http://127.0.0.1:5000/{{teacher["id"]}}/delete">Delete</a>
+
+            </td>
+        </tr>
+    {% endfor %}
+</tbody>
+
+</table>
+  
+
+{% endblock body %}
