@@ -1,17 +1,17 @@
-{% extends 'home1.html' %}
+{% extends 'base.html' %}
 
 {% block title %}Teachers List{% endblock title %}
-{% block head %}
-    <style>
-        .name{
-            color: white;
-            font-size: 16 px;
-            font-family: Verdana, Arial, sans-serif;
-        }
-    </style>
-{% endblock head %}
-
 {% block body %}
+<style>
+    .name{
+        color: white;
+        font-size: 16 px;
+        font-family: Verdana, Arial, sans-serif;
+    }
+    body{
+    background-image: linear-gradient(to right, #DECBA4, #7E4266);
+ }
+</style>
 
 <a class="btn btn-success mt-4 mb-4 ms-4" href= "http://127.0.0.1:5000/teacher/add">Add Teacher</a>
 

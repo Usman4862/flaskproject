@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+Edit Student Details
+
+{% endblock title %}
+
+{% block body %}
+<style>
+    .img{
+        margin-left: 50px;
+        margin-top: 80px;
+    }
+</style>
+<html>
+    <form action="" method="POST">
+        <section class="h-100 bg-dark">
+            <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+                    <div class="col-xl-6 d-none d-xl-block">
+                        <img class= "img" src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                        alt="Sample photo" class="img-fluid"
+                        style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card-body p-md-5 text-black">
+                        <h3 class="mb-5 text-uppercase">Student Edit</h3>
+        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="form3Example1m" >First name</label>
+                                <input type="text" name="first_name" value="{{student['f_name']}}" id="form3Example1m" class="form-control form-control-lg" />
+                            </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="form3Example1n" >Last name</label>
+                                <input type="text" name="last_name" value="{{student['l_name']}}" id="form3Example1n" class="form-control form-control-lg" />
+                            </div>
+                            </div>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form3Example9" >DOB</label>
+                            <input type="text" name="date_of_birth" value="{{student['dofbirth']}}" id="form3Example9" class="form-control form-control-lg" />
+                        </div>
+        
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form3Example90" >Roll Number</label>
+                            <input type="text" name="roll_number" value="{{student['roll']}}" id="form3Example90" class="form-control form-control-lg" />
+                        </div>
+        
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form3Example99" >Course</label>
+                            <input type="text" name="class" value="{{student['class']}}" id="form3Example99" class="form-control form-control-lg" />
+                        </div>
+        
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form3Example97" >Fee</label>
+                            <input type="text" name="fee" value="{{student['fee']}}" id="form3Example97" class="form-control form-control-lg" />
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </form>
+</html>
+
+{% endblock body %}

@@ -56,15 +56,15 @@ def hello_world():
 
 @app.route("/student.list")
 def student_list():
-    return render_template("student_list.html", students=ALL_DATA)
+    return render_template("students/student_list.html", students=ALL_DATA)
 
 
 @app.route("/student/<roll_number>")
 def student_detail(roll_number):
     for student in ALL_DATA:
         if student['roll'] == roll_number:
-            return render_template("student_detail.html", student=student)
-    return render_template("404.html")
+            return render_template("students/student_detail.html", student=student)
+    return render_template("students/404.html")
 
 
 @app.route("/student/<roll_number>/delete")
@@ -73,12 +73,12 @@ def delete_student(roll_number):
         if student['roll'] == roll_number:
             ALL_DATA.remove(student)
             return redirect("/student.list")
-    return render_template("404.html")
+    return render_template("students/404.html")
 
 @app.route("/student/add", methods=["GET", "POST"])
 def add_student():
     if request.method == "GET":
-        return render_template("add_student.html")
+        return render_template("students/add_student.html")
     elif request.method == "POST":
         first_name =  request.form["first_name"]
         last_name = request.form["last_name"]
@@ -107,11 +107,11 @@ def edit_student(roll_number):
         if student['roll'] == roll_number:
             current_student = student
     if current_student == None:
-        return render_template("404.html")
+        return render_template("students/404.html")
     
     # Send the form on get request
     if request.method == "GET":
-        return render_template("edit_student.html", student=current_student)
+        return render_template("students/edit_student.html", student=current_student)
     elif request.method == 'POST':
         index = ALL_DATA.index(current_student)
         ALL_DATA[index] = {
@@ -124,29 +124,26 @@ def edit_student(roll_number):
         }
         return redirect("/student.list")
 
-@app.route("/home_")
-def teacher_list():
-    return render_template("home1.html")
-
+# Teachers
 
 @app.route("/teacher.list")
 def teacherlist():
-    return render_template("teacher_list.html", teachers= TEACHER_DATA)
+    return render_template("/teachers/teacher_list.html", teachers= TEACHER_DATA)
 
 
 @app.route("/teacher/<id>")
 def teacherid(id):
     for teacher in TEACHER_DATA:
         if teacher["id"] == id:
-            return render_template("teacher_detail.html", teacher= teacher)
-    return render_template("404_.html")
+            return render_template("teachers/teacher_detail.html", teacher= teacher)
+    return render_template("teachers/404_.html")
 
 @app.route("/<id>/view_")
 def view_teacher(id):
     for teacher in TEACHER_DATA:
         if teacher["id"] == id:
-            return render_template("teacher_detail.html", teacher= teacher)
-    return render_template("404_.html")
+            return render_template("teachers/teacher_detail.html", teacher= teacher)
+    return render_template("teachers/404_.html")
 
 
 @app.route("/<id>/delete")
@@ -155,13 +152,13 @@ def delete_teacher(id):
         if teacher["id"] == id:
             TEACHER_DATA.remove(teacher)
             return redirect("/teacher.list")
-    return render_template("404_.html")
+    return render_template("teachers/404_.html")
 
 
 @app.route("/teacher/add", methods=  ['GET', 'POST'])
 def add_teacher():
     if request.method == "GET":
-        return render_template("add_teacher.html")
+        return render_template("teachers/add_teacher.html")
     elif request.method == "POST":
         first_name = request.form["first_name"]
         last_name = request.form["last_name"]
@@ -187,9 +184,9 @@ def edit_teacher(id):
         if teacher['id'] == id:
             current_teacher = teacher
     if current_teacher == None:
-        return render_template("404_.html")
+        return render_template("teachers/404_.html")
     if request.method == "GET":
-        return render_template("edit_teacher.html", teacher= current_teacher)
+        return render_template("teachers/edit_teacher.html", teacher= current_teacher)
     elif request.method == "POST":
         index = TEACHER_DATA.index(current_teacher)
         TEACHER_DATA[index] = {

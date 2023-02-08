@@ -4,6 +4,20 @@
 {% endblock title %}
 
 {% block body %}
+<style>
+  .card{
+      text-align: center;
+      font-family: Verdana, Arial, sans-serif;
+      display: flex;
+      margin-left: 35%;
+      margin-top: 100px;
+      font-size: 18px;
+
+  }
+  body{
+    background-image: linear-gradient(to left, #DECBA4, #4E1679);
+ }
+</style>
 
 <div class="card" style="width: 18rem">
   <div class="card-body">
@@ -18,8 +32,8 @@
     <li class="list-group-item">Roll No-{{student["roll"]}}</li>
   </ul>
   <div class="card-body">
-    <a href="http://192.168.0.101:5000/student/1/delete" class="card-link">Delete Student</a>
-    <a href="http://192.168.0.101:5000/student.list" class="card-link">View All students</a>
+    <a href="/student/1/delete" class="card-link">Delete Student</a>
+    <a href="/student.list" class="card-link">View All students</a>
   </div>
 </div>
 {% endblock body %}

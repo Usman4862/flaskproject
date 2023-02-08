@@ -1,7 +1,7 @@
-{% extends 'home1.html' %}
+{% extends 'base.html' %}
 
 {% block title %}First Name: {{teacher['f_name']}}{% endblock title %}
-{% block head %}
+{% block body %}
 <style>
     .card{
         text-align: center;
@@ -12,10 +12,10 @@
         font-size: 18px;
 
     }
+    body{
+      background-image: linear-gradient(to left, #DECBA4, #4E1679);
+   }
 </style>
-
-{% endblock head %}
-{% block body %}
 
 <div class="card" style="width: 18rem">
     <div class="card-body">
@@ -31,8 +31,8 @@
       <li class="list-group-item">ID#: {{teacher["id"]}}</li>
     </ul>
     <div class="card-body">
-      <a href="http://127.0.0.1:5000/{{teacher["id"]}}/delete" class="card-link">Delete Teacher</a><br>
-      <a href="http://127.0.0.1:5000/teacher.list" class="card-link">All Teachers</a>
+      <a href="/{{teacher["id"]}}/delete" class="card-link">Delete Teacher</a><br>
+      <a href="/teacher.list" class="card-link">All Teachers</a>
     </div>
   </div>
 {% endblock body %}
