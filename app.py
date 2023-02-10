@@ -94,7 +94,6 @@ def add_student():
             'roll': roll_,
             'fee': fees_
             }
-
         ALL_DATA.append(student)
         return redirect("/student.list")
 
